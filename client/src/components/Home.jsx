@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Users, Calendar, Clock, Search } from 'lucide-react';
 import CarsList from './CarsList';
 import './Home.css';
+import swiftImg from '../assets/swift.avif';
+
 
 const Home = () => {
     const navigate = useNavigate();
@@ -192,7 +194,7 @@ const Home = () => {
                                         id: 8,
                                         name: 'Maruti Swift CNG',
                                         price: 1500,
-                                        image: 'https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?auto=format&fit=crop&q=80&w=1200',
+                                        image: swiftImg,
                                         seats: 5,
                                         transmission: 'Manual',
                                         fuel: 'CNG',

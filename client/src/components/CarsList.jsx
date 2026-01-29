@@ -3,6 +3,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Users, Filter, Star, Info, Fuel, Gauge, Car } from 'lucide-react';
 import './CarsList.css';
+import kiaImg from '../assets/kia.jpeg';
+import tiagoImg from '../assets/tiagoev.jpeg';
+import swiftImg from '../assets/swift.avif';
+
 
 const CarsList = ({ searchParams: propSearchParams, embedded }) => {
     const location = useLocation();
@@ -80,7 +84,7 @@ const CarsList = ({ searchParams: propSearchParams, embedded }) => {
             transmission: 'Automatic',
             fuel: 'Petrol',
             mileage: '18 kmpl',
-            image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200',
+            image: kiaImg,
             features: ['Bose System', 'Ambient Lighting', 'HUD display', 'Smart Air Purifier']
         },
         {
@@ -106,7 +110,7 @@ const CarsList = ({ searchParams: propSearchParams, embedded }) => {
             transmission: 'Automatic',
             fuel: 'Electric',
             mileage: '315 km/full charge',
-            image: 'https://images.unsplash.com/photo-1617469767053-d3b508a0d182?auto=format&fit=crop&q=80&w=1200',
+            image: tiagoImg,
             features: ['Ziptron Tech', 'Harman Audio', 'Fast Charging', 'Climate Control']
         },
         {
@@ -119,7 +123,7 @@ const CarsList = ({ searchParams: propSearchParams, embedded }) => {
             transmission: 'Manual',
             fuel: 'CNG',
             mileage: '30 km/kg',
-            image: 'https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?auto=format&fit=crop&q=80&w=1200',
+            image: swiftImg,
             features: ['Low Running Cost', 'Reliable Engine', 'Compact Design', 'SmartPlay Studio']
         }
     ];
