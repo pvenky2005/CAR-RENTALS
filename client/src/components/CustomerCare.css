@@ -1,0 +1,264 @@
+.support-container {
+    padding: 6rem 2rem 4rem;
+    min-height: 100vh;
+    background: #fbfbfd;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.support-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.support-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1d1d1f;
+    margin-bottom: 1rem;
+}
+
+.search-bar {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+    color: #1d1d1f;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.action-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: #f5f5f7;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0071e3;
+    font-size: 1.5rem;
+}
+
+.action-card h3 {
+    font-size: 1.25rem;
+    color: #1d1d1f;
+    margin-bottom: 0.5rem;
+}
+
+.action-card p {
+    color: #86868b;
+    margin-bottom: 1rem;
+}
+
+.action-card a {
+    color: #0071e3;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.chat-btn {
+    background: #0071e3;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.chat-btn:hover {
+    background: #0077ed;
+}
+
+/* FAQ Section */
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.faq-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.faq-list {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    padding: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: #1d1d1f;
+    background: #fff;
+    transition: background 0.2s ease;
+}
+
+.faq-question:hover {
+    background: #f9f9fc;
+}
+
+.faq-answer {
+    padding: 0 1.25rem;
+    color: #6e6e73;
+    line-height: 1.6;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+    padding-bottom: 1.25rem;
+}
+
+.no-results {
+    padding: 2rem;
+    text-align: center;
+    color: #86868b;
+}
+
+.no-results svg {
+    margin-bottom: 1rem;
+}
+
+/* Contact Form */
+.contact-form-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-form-section h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.75rem;
+}
+
+.support-form .form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.support-form .form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.support-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #424245;
+}
+
+.support-form input,
+.support-form select,
+.support-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+    background: #fafafc;
+}
+
+.support-form input:focus,
+.support-form select:focus,
+.support-form textarea:focus {
+    border-color: #0071e3;
+    background: #fff;
+}
+
+.submit-ticket-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #1d1d1f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-ticket-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .support-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact-form-section {
+        padding: 2rem;
+    }
+
+    .support-header h1 {
+        font-size: 2rem;
+    }
+}

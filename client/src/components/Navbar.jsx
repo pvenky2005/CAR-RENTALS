@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, CarFront, User, LogOut } from 'lucide-react';
+import { Menu, X, CarFront, User, LogOut, Tag, Calendar, Headset } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
@@ -18,10 +18,9 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Home', path: '/home' },
-        { name: 'My Bookings', path: '/bookings' },
-        { name: 'My Trips', path: '/trips' },
-        { name: 'Terms & Conditions', path: '/terms' },
-        { name: 'Call Customer Care', path: '/support' },
+        { name: 'My Bookings', path: '/bookings', icon: <Calendar size={18} /> },
+        { name: 'Offers', path: '/offers', icon: <Tag size={18} /> },
+        { name: 'Call Customer Care', path: '/support', icon: <Headset size={18} /> },
         { name: 'Agreement Policy', path: '/policy' },
         { name: 'Questions', path: '/faq' },
     ];
@@ -29,20 +28,36 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                {/* Top Left: Menu Button */}
-                <div className="nav-left">
+                {/* Mobile Menu Button */}
+                <div className="nav-mobile-toggle">
                     <button className="menu-btn" onClick={toggleMenu} aria-label="Toggle Menu">
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
 
-                {/* Center: Brand */}
+                {/* Brand Logo */}
                 <Link to="/home" className="nav-brand">
                     <div className="brand-logo">
                         <CarFront size={24} />
                     </div>
                     <span className="brand-text">Go<span>Drive</span></span>
                 </Link>
+
+                {/* Desktop Navigation Links */}
+                <div className="nav-desktop-links">
+                    <Link to="/bookings" className="nav-link">
+                        <Calendar size={18} />
+                        <span>My Bookings</span>
+                    </Link>
+                    <Link to="/support" className="nav-link">
+                        <Headset size={18} />
+                        <span>Customer Care</span>
+                    </Link>
+                    <Link to="/offers" className="nav-link">
+                        <Tag size={18} />
+                        <span>Offers</span>
+                    </Link>
+                </div>
 
                 {/* Right: User Profile */}
                 <div className="nav-right">
