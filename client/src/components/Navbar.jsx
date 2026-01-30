@@ -19,7 +19,11 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', path: '/home' },
         { name: 'My Bookings', path: '/bookings' },
-        { name: 'Help', path: '/help' },
+        { name: 'My Trips', path: '/trips' },
+        { name: 'Terms & Conditions', path: '/terms' },
+        { name: 'Call Customer Care', path: '/support' },
+        { name: 'Agreement Policy', path: '/policy' },
+        { name: 'Questions', path: '/faq' },
     ];
 
     return (

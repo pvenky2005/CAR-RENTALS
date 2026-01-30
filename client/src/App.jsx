@@ -5,6 +5,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import CarsList from './components/CarsList';
 import Booking from './components/Booking';
+import Support from './components/Support';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
@@ -43,6 +44,66 @@ function App() {
                         <ProtectedRoute>
                             <Navbar />
                             <Booking />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/bookings"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Support />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/trips"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Support />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/terms"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Support />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/support"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Support />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/policy"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Support />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/faq"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Support />
                         </ProtectedRoute>
                     }
                 />
