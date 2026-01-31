@@ -4,6 +4,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import CarsList from './components/CarsList';
+import CarDetails from './components/CarDetails';
+import AgreementPolicy from './components/AgreementPolicy';
 import Booking from './components/Booking';
 import Support from './components/Support';
 import Navbar from './components/Navbar';
@@ -36,6 +38,26 @@ function App() {
                         <ProtectedRoute>
                             <Navbar />
                             <CarsList />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/car-details"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <CarDetails />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/agreement"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <AgreementPolicy />
                         </ProtectedRoute>
                     }
                 />
