@@ -10,24 +10,23 @@ const Support = () => {
 
     const getPageContent = () => {
         switch (location.pathname) {
-            case '/terms':
-                return {
-                    title: 'Terms & Conditions',
-                    icon: <FileText size={32} />,
-                    isList: true,
-                    content: [
-                        'Surety and RC of the vehicle are required for all rentals.',
-                        'A valid Driving License is strictly mandatory.',
-                        'The car will be professionally washed before delivery to the customer.',
-                        'We provide 1 liter of fuel in the car to help you reach the nearest petrol pump.',
-                        'Any traffic challans (fines) applied during the rental period must be paid by the customer.'
-                    ]
-                };
+
             case '/policy':
                 return {
-                    title: 'Agreement Policy',
+                    title: 'Agreement Policy & Terms',
                     icon: <Info size={32} />,
-                    content: 'Our rental agreement covers all aspects of the transaction, ensuring transparency and safety for both parties.'
+                    content: {
+                        description: 'Please read our rental agreement and terms carefully. By proceeding with a booking, you agree to abide by the following policies to ensure a safe and smooth experience.',
+                        listItems: [
+                            'Surety and RC of the vehicle are provided upon pickup.',
+                            'A valid Driving License is strictly mandatory for all drivers.',
+                            'Vehicles are professionally cleaned and sanitized before delivery.',
+                            'We provide 1 liter of fuel to reach the nearest station; fuel costs are borne by the customer.',
+                            'Any traffic fines or challans incurred during the rental period are the customer\'s responsibility.',
+                            'Late returns will incur additional charges as per the hourly rate.',
+                            'Security deposit will be refunded within 3-5 business days post-return.'
+                        ]
+                    }
                 };
             case '/support':
                 return {
@@ -85,7 +84,7 @@ const Support = () => {
 
     return (
         <div className="booking-container">
-            <div className="booking-layout" style={{ maxWidth: '800px', margin: '140px auto' }}>
+            <div className="booking-layout" style={{ maxWidth: '900px', margin: '120px auto', padding: '0 2rem' }}>
                 <button className="back-link" onClick={() => navigate(-1)}>
                     <ChevronLeft size={20} /> Back
                 </button>
@@ -94,82 +93,122 @@ const Support = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="booking-card"
-                    style={{ padding: '3rem', textAlign: 'center' }}
+                    style={{ padding: '3rem 3.5rem', textAlign: 'left' }}
                 >
-                    <div style={{
-                        width: '80px',
-                        height: '80px',
-                        background: '#f5f5f7',
-                        borderRadius: '20px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        margin: '0 auto 2rem',
-                        color: '#0071e3'
-                    }}>
-                        {icon}
+                    {/* Header Section */}
+                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        <div style={{
+                            width: '60px',
+                            height: '60px',
+                            background: 'linear-gradient(135deg, #0071e3 0%, #00a2ff 100%)',
+                            borderRadius: '16px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            margin: '0 auto 1.5rem',
+                            color: '#fff'
+                        }}>
+                            {icon}
+                        </div>
+                        <h1 style={{
+                            marginBottom: '1rem',
+                            fontWeight: '700',
+                            fontSize: '2rem',
+                            color: '#1d1d1f'
+                        }}>
+                            {title}
+                        </h1>
                     </div>
-                    <h1 style={{ marginBottom: '1.5rem', fontWeight: '700' }}>{title}</h1>
 
-                    {isList ? (
-                        <motion.ul
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="visible"
-                            style={{
-                                listStyle: 'none',
-                                padding: 0,
-                                textAlign: 'left',
-                                margin: '0 auto 2rem',
-                                maxWidth: '600px'
-                            }}
-                        >
-                            {content.map((item, index) => (
-                                <motion.li
-                                    key={index}
-                                    variants={itemVariants}
-                                    whileHover={{ x: 10, backgroundColor: '#f0f0f5' }}
-                                    style={{
-                                        background: '#fbfbfd',
-                                        padding: '1.25rem',
-                                        borderRadius: '12px',
-                                        marginBottom: '0.75rem',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '1rem',
-                                        border: '1px solid rgba(0,0,0,0.02)',
-                                        color: '#1d1d1f',
-                                        fontSize: '1.05rem',
-                                        lineHeight: '1.4',
-                                        cursor: 'default'
-                                    }}
-                                >
-                                    <div style={{
-                                        width: '8px',
-                                        height: '8px',
-                                        background: '#0071e3',
-                                        borderRadius: '50%',
-                                        flexShrink: 0
-                                    }} />
-                                    {item}
-                                </motion.li>
-                            ))}
-                        </motion.ul>
-                    ) : (
-                        <p style={{ fontSize: '1.1rem', color: '#6e6e73', lineHeight: '1.6', marginBottom: '2rem' }}>
-                            {content}
+                    {/* Description Text */}
+                    {(content.description || (!isList && typeof content === 'string')) && (
+                        <p style={{
+                            fontSize: '1.05rem',
+                            color: '#424245',
+                            lineHeight: '1.7',
+                            marginBottom: '2.5rem',
+                            textAlign: 'justify'
+                        }}>
+                            {content.description || content}
                         </p>
                     )}
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="confirm-btn"
-                        onClick={() => navigate('/home')}
-                        style={{ maxWidth: '200px', margin: '0 auto' }}
-                    >
-                        Back to Home
-                    </motion.button>
+                    {/* List Items */}
+                    {(content.listItems || (isList && Array.isArray(content))) && (
+                        <>
+                            {content.listItems && (
+                                <h2 style={{
+                                    fontSize: '1.3rem',
+                                    fontWeight: '600',
+                                    color: '#1d1d1f',
+                                    marginBottom: '1.5rem',
+                                    paddingBottom: '0.75rem',
+                                    borderBottom: '2px solid #f5f5f7'
+                                }}>
+                                    Terms & Conditions
+                                </h2>
+                            )}
+                            <motion.ol
+                                variants={containerVariants}
+                                initial="hidden"
+                                animate="visible"
+                                style={{
+                                    listStyle: 'decimal',
+                                    paddingLeft: '2rem',
+                                    margin: '0 0 2.5rem 0'
+                                }}
+                            >
+                                {(content.listItems || content).map((item, index) => (
+                                    <motion.li
+                                        key={index}
+                                        variants={itemVariants}
+                                        style={{
+                                            marginBottom: '1rem',
+                                            color: '#1d1d1f',
+                                            fontSize: '1rem',
+                                            lineHeight: '1.6',
+                                            paddingLeft: '0.5rem'
+                                        }}
+                                    >
+                                        {item}
+                                    </motion.li>
+                                ))}
+                            </motion.ol>
+                        </>
+                    )}
+
+                    {/* Footer */}
+                    <div style={{
+                        marginTop: '3rem',
+                        paddingTop: '2rem',
+                        borderTop: '1px solid #e5e5e7',
+                        textAlign: 'center'
+                    }}>
+                        <p style={{
+                            fontSize: '0.9rem',
+                            color: '#86868b',
+                            marginBottom: '1rem'
+                        }}>
+                            By proceeding with your booking, you acknowledge that you have read and agree to these terms.
+                        </p>
+                        <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => navigate('/home')}
+                            style={{
+                                background: 'transparent',
+                                color: '#0071e3',
+                                border: 'none',
+                                fontSize: '0.9rem',
+                                fontWeight: '500',
+                                cursor: 'pointer',
+                                padding: '0.5rem 1rem',
+                                textDecoration: 'underline'
+                            }}
+                        >
+                            ← Back to Home
+                        </motion.button>
+                    </div>
                 </motion.div>
             </div>
         </div>

@@ -4,9 +4,13 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import CarsList from './components/CarsList';
+import CarDetails from './components/CarDetails';
+import AgreementPolicy from './components/AgreementPolicy';
 import Booking from './components/Booking';
 import Support from './components/Support';
 import Navbar from './components/Navbar';
+import Offers from './components/Offers';
+import MyBookings from './components/MyBookings';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -39,6 +43,26 @@ function App() {
                 />
 
                 <Route
+                    path="/car-details"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <CarDetails />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/agreement"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <AgreementPolicy />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
                     path="/booking"
                     element={
                         <ProtectedRoute>
@@ -53,7 +77,7 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <Navbar />
-                            <Support />
+                            <MyBookings />
                         </ProtectedRoute>
                     }
                 />
@@ -68,15 +92,7 @@ function App() {
                     }
                 />
 
-                <Route
-                    path="/terms"
-                    element={
-                        <ProtectedRoute>
-                            <Navbar />
-                            <Support />
-                        </ProtectedRoute>
-                    }
-                />
+
 
                 <Route
                     path="/support"
@@ -94,6 +110,16 @@ function App() {
                         <ProtectedRoute>
                             <Navbar />
                             <Support />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/offers"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Offers />
                         </ProtectedRoute>
                     }
                 />

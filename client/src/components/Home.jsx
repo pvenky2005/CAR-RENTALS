@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Users, Calendar, Clock, Search } from 'lucide-react';
+import { MapPin, Users, Calendar, Clock, Search, ShieldCheck, Headset, Zap, CreditCard, Mail, Phone, Send } from 'lucide-react';
 import CarsList from './CarsList';
 import './Home.css';
 import swiftImg from '../assets/swift.avif';
@@ -226,6 +226,106 @@ const Home = () => {
                                         </div>
                                     </motion.div>
                                 ))}
+                            </div>
+                        </section>
+
+                        {/* Why Choose Us Section */}
+                        <section className="why-choose-us">
+                            <div className="section-header">
+                                <h2>Why Choose Us</h2>
+                                <p>Experience the difference with our premium car rental service.</p>
+                            </div>
+                            <div className="features-grid">
+                                {[
+                                    {
+                                        icon: <ShieldCheck size={40} />,
+                                        title: 'Safety First',
+                                        desc: 'All our cars undergo rigorous 60-point safety checks before every trip.'
+                                    },
+                                    {
+                                        icon: <CreditCard size={40} />,
+                                        title: 'Transparent Pricing',
+                                        desc: 'No hidden charges. What you see is what you pay, always.'
+                                    },
+                                    {
+                                        icon: <Zap size={40} />,
+                                        title: 'Instant Booking',
+                                        desc: 'Book your dream car in less than 2 minutes with our seamless app.'
+                                    },
+                                    {
+                                        icon: <Headset size={40} />,
+                                        title: '24/7 Support',
+                                        desc: 'Our dedicated support team is always available to assist you.'
+                                    }
+                                ].map((feature, index) => (
+                                    <motion.div
+                                        key={index}
+                                        whileHover={{ y: -10 }}
+                                        className="feature-card"
+                                    >
+                                        <div className="feature-icon">{feature.icon}</div>
+                                        <h3>{feature.title}</h3>
+                                        <p>{feature.desc}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Contact Us Section */}
+                        <section className="contact-us">
+                            <div className="section-header">
+                                <h2>Get in Touch</h2>
+                                <p>Have questions? We'd love to hear from you.</p>
+                            </div>
+                            <div className="contact-container">
+                                <motion.div
+                                    className="contact-info"
+                                    initial={{ x: -20, opacity: 0 }}
+                                    whileInView={{ x: 0, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <div className="info-item">
+                                        <div className="info-icon"><Phone size={24} /></div>
+                                        <div>
+                                            <h4>Phone</h4>
+                                            <p>+91 98765 43210</p>
+                                        </div>
+                                    </div>
+                                    <div className="info-item">
+                                        <div className="info-icon"><Mail size={24} /></div>
+                                        <div>
+                                            <h4>Email</h4>
+                                            <p>support@carrentals.com</p>
+                                        </div>
+                                    </div>
+                                    <div className="info-item">
+                                        <div className="info-icon"><MapPin size={24} /></div>
+                                        <div>
+                                            <h4>Office</h4>
+                                            <p>123, Premium Tower, Bangalore, Karnataka - 560001</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                <motion.form
+                                    className="contact-form"
+                                    initial={{ x: 20, opacity: 0 }}
+                                    whileInView={{ x: 0, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <div className="form-group">
+                                        <input type="text" placeholder="Your Name" required />
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="email" placeholder="Your Email" required />
+                                    </div>
+                                    <div className="form-group">
+                                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                                    </div>
+                                    <button type="submit" className="submit-btn">
+                                        <Send size={18} /> Send Message
+                                    </button>
+                                </motion.form>
                             </div>
                         </section>
                     </motion.div>

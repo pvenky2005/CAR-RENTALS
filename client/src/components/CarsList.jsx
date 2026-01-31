@@ -258,9 +258,9 @@ const CarsList = ({ searchParams: propSearchParams, embedded }) => {
                                         </div>
                                         <button
                                             className="select-car-btn"
-                                            onClick={() => navigate('/booking', { state: { car } })}
+                                            onClick={() => navigate('/car-details', { state: { car } })}
                                         >
-                                            Select
+                                            View Details
                                         </button>
                                     </div>
                                 </div>
