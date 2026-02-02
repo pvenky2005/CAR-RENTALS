@@ -59,6 +59,15 @@ const Home = () => {
                                 >
                                     Select your destination, pick a ride, and hit the road in style.
                                 </motion.p>
+                                <motion.button
+                                    className="view-fleet-btn"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.4 }}
+                                    onClick={() => document.getElementById('fleet').scrollIntoView({ behavior: 'smooth' })}
+                                >
+                                    View Our Fleet
+                                </motion.button>
                             </div>
 
                             {/* Search Bar Container */}
@@ -149,7 +158,7 @@ const Home = () => {
                         </section>
 
                         {/* Featured Section */}
-                        <section className="featured-section">
+                        <section id="fleet" className="featured-section">
                             <div className="section-header">
                                 <h2>Our Premium Fleet</h2>
                                 <p>Curated selection of luxury vehicles for your comfort.</p>

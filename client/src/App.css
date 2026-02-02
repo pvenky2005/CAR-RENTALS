@@ -21,6 +21,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* Page wrapper styles for non-home pages */
+.page-wrapper {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.page-wrapper--light {
+  background: #fbfbfd;
+}
+
+.page-wrapper--gradient {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

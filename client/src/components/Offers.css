@@ -1,7 +1,13 @@
+.offers-page-wrapper {
+    min-height: 100vh;
+    background: #fbfbfd;
+    position: relative;
+    z-index: 1;
+}
+
 .offers-container {
     padding: 8rem 2rem 4rem;
     min-height: 100vh;
-    background: #fbfbfd;
     max-width: 1400px;
     margin: 0 auto;
 }
