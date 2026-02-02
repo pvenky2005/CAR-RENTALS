@@ -18,6 +18,7 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Home', path: '/home' },
+        { name: 'Profile', path: '/profile', icon: <User size={18} /> },
         { name: 'My Bookings', path: '/bookings', icon: <Calendar size={18} /> },
         { name: 'Offers', path: '/offers', icon: <Tag size={18} /> },
         { name: 'Call Customer Care', path: '/support', icon: <Headset size={18} /> },
@@ -61,12 +62,14 @@ const Navbar = () => {
 
                 {/* Right: User Profile */}
                 <div className="nav-right">
-                    <div className="user-profile">
-                        <span className="user-name">{user.name}</span>
-                        <div className="avatar">
-                            <User size={20} />
+                    <Link to="/profile" className="user-profile-link">
+                        <div className="user-profile">
+                            <span className="user-name">{user.name}</span>
+                            <div className="avatar">
+                                <User size={20} />
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
 
@@ -101,7 +104,10 @@ const Navbar = () => {
                                         className="side-link"
                                         onClick={toggleMenu}
                                     >
-                                        {link.name}
+                                        <div className="side-link-content">
+                                            {link.icon}
+                                            {link.name}
+                                        </div>
                                     </Link>
                                 ))}
                             </div>

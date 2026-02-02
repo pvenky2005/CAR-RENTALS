@@ -11,6 +11,7 @@ import Support from './components/Support';
 import Navbar from './components/Navbar';
 import Offers from './components/Offers';
 import MyBookings from './components/MyBookings';
+import Profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -130,6 +131,16 @@ function App() {
                         <ProtectedRoute>
                             <Navbar />
                             <Support />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute>
+                            <Navbar />
+                            <Profile />
                         </ProtectedRoute>
                     }
                 />
