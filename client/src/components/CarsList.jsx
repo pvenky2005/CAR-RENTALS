@@ -6,6 +6,8 @@ import './CarsList.css';
 import kiaImg from '../assets/kia.jpeg';
 import tiagoImg from '../assets/tiagoev.jpeg';
 import swiftImg from '../assets/swift.avif';
+import nanoImg from '../assets/TataNano.avif';
+import beatImg from '../assets/Chevrolet-Beat.avif';
 
 
 const CarsList = ({ searchParams: propSearchParams, embedded }) => {
@@ -125,6 +127,71 @@ const CarsList = ({ searchParams: propSearchParams, embedded }) => {
             mileage: '30 km/kg',
             image: swiftImg,
             features: ['Low Running Cost', 'Reliable Engine', 'Compact Design', 'SmartPlay Studio']
+        },
+        {
+            id: 9,
+            name: 'Audi Q3',
+            category: 'Luxury',
+            price: 8500,
+            seats: 5,
+            rating: 4.9,
+            transmission: 'Automatic',
+            fuel: 'Petrol',
+            mileage: '12 kmpl',
+            image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&q=80&w=1200',
+            features: ['Quattro AWD', 'Virtual Cockpit', 'Panoramic Sunroof', 'Matrix LED']
+        },
+        {
+            id: 10,
+            name: 'BMW 520d',
+            category: 'Luxury',
+            price: 9500,
+            seats: 5,
+            rating: 4.8,
+            transmission: 'Automatic',
+            fuel: 'Diesel',
+            mileage: '14 kmpl',
+            image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=1200',
+            features: ['M Sport Kit', 'Gesture Control', 'Harman Kardon', 'Active Aerodynamics']
+        },
+        {
+            id: 11,
+            name: 'Mercedes-Benz S-Class',
+            category: 'Luxury',
+            price: 15000,
+            seats: 5,
+            rating: 5.0,
+            transmission: 'Automatic',
+            fuel: 'Diesel',
+            mileage: '10 kmpl',
+            image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=1200',
+            features: ['Magic Body Control', 'Burmester 4D', 'MBUX Hyperscreen', 'Executive Seats']
+        },
+        {
+            id: 12,
+            name: 'Tata Nano',
+            category: 'Sedan',
+            price: 800,
+            seats: 4,
+            rating: 4.2,
+            transmission: 'Manual',
+            fuel: 'Petrol',
+            mileage: '25 kmpl',
+            image: nanoImg,
+            features: ['Compact Parking', 'City Maneuverability', 'AC with Heater', 'Music System']
+        },
+        {
+            id: 13,
+            name: 'Chevrolet Beat',
+            category: 'Hatchback',
+            price: 1100,
+            seats: 4,
+            rating: 4.3,
+            transmission: 'Manual',
+            fuel: 'Diesel',
+            mileage: '20 kmpl',
+            image: beatImg,
+            features: ['Compact Design', 'Power Steering', 'Fuel Efficient', 'Rear Wiper']
         }
     ];
 

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ChevronLeft, Star, Users, Fuel, Gauge, Settings, Shield,
-    Calendar, Heart, Share2, Check, Car, Zap, MapPin
+    Calendar, Heart, Share2, Check, Car, Zap, MapPin, AlertCircle
 } from 'lucide-react';
 import './CarDetails.css';
 
@@ -179,6 +179,13 @@ const CarDetails = () => {
                                 <Star size={18} />
                                 Reviews
                             </button>
+                            <button
+                                className={`tab-btn ${activeTab === 'policy' ? 'active' : ''}`}
+                                onClick={() => setActiveTab('policy')}
+                            >
+                                <Shield size={18} />
+                                Agreement Policy
+                            </button>
                         </div>
 
                         <AnimatePresence mode="wait">
@@ -338,6 +345,49 @@ const CarDetails = () => {
                                                     <p className="review-text">{review.comment}</p>
                                                 </motion.div>
                                             ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Policy Tab */}
+                                {activeTab === 'policy' && (
+                                    <div className="policy-content">
+                                        <div className="policy-header">
+                                            <Shield size={24} className="policy-icon" />
+                                            <h3>Rental Agreement Policy & Terms</h3>
+                                        </div>
+                                        <div className="policy-list">
+                                            <div className="policy-item">
+                                                <div className="policy-number">1</div>
+                                                <p>Surety and RC of the vehicle are provided upon pickup.</p>
+                                            </div>
+                                            <div className="policy-item">
+                                                <div className="policy-number">2</div>
+                                                <p>A valid Driving License is strictly mandatory for all drivers.</p>
+                                            </div>
+                                            <div className="policy-item">
+                                                <div className="policy-number">3</div>
+                                                <p>Vehicles are professionally cleaned and sanitized before delivery.</p>
+                                            </div>
+                                            <div className="policy-item">
+                                                <div className="policy-number">4</div>
+                                                <p>We provide 1 liter of fuel to reach the nearest station; fuel costs are borne by the customer.</p>
+                                            </div>
+                                            <div className="policy-item">
+                                                <div className="policy-number">5</div>
+                                                <p>Any traffic fines or challans incurred during the rental period are the customer's responsibility.</p>
+                                            </div>
+                                            <div className="policy-item">
+                                                <div className="policy-number">6</div>
+                                                <p>Late returns will incur additional charges as per the hourly rate.</p>
+                                            </div>
+                                            <div className="policy-item">
+                                                <div className="policy-number">7</div>
+                                                <p>Security deposit will be refunded within 3-5 business days post-return.</p>
+                                            </div>
+                                        </div>
+                                        <div className="policy-footer">
+                                            <p><AlertCircle size={16} /> By booking, you agree to these terms.</p>
                                         </div>
                                     </div>
                                 )}

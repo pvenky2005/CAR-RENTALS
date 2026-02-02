@@ -106,6 +106,7 @@ const Home = () => {
                                         <input
                                             type="date"
                                             name="pickupDate"
+                                            min={new Date().toISOString().split('T')[0]}
                                             value={searchData.pickupDate}
                                             onChange={handleChange}
                                             required
@@ -129,6 +130,7 @@ const Home = () => {
                                         <input
                                             type="date"
                                             name="returnDate"
+                                            min={searchData.pickupDate || new Date().toISOString().split('T')[0]}
                                             value={searchData.returnDate}
                                             onChange={handleChange}
                                             required
@@ -228,7 +230,7 @@ const Home = () => {
                                             </div>
                                             <button
                                                 className="book-now-btn"
-                                                onClick={() => navigate('/booking', { state: { car } })}
+                                                onClick={() => navigate('/car-details', { state: { car } })}
                                             >
                                                 Book Now
                                             </button>

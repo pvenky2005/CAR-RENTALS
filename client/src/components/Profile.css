@@ -1,7 +1,10 @@
 .profile-page-container {
     min-height: 100vh;
     padding: 120px 2rem 5rem;
-    background: #f8f9fa;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/car1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: flex-start;
