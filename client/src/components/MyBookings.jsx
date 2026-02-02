@@ -72,108 +72,110 @@ const MyBookings = () => {
     };
 
     return (
-        <div className="bookings-container">
-            <div className="bookings-header">
-                <h1>My Bookings</h1>
-                <p>Manage your upcoming trips and view past rentals.</p>
-            </div>
+        <div className="bookings-page-wrapper">
+            <div className="bookings-container">
+                <div className="bookings-header">
+                    <h1>My Bookings</h1>
+                    <p>Manage your upcoming trips and view past rentals.</p>
+                </div>
 
-            {/* Tabs */}
-            <div className="bookings-tabs">
-                {['upcoming', 'completed', 'cancelled'].map((tab) => (
-                    <button
-                        key={tab}
-                        className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
-                        onClick={() => setActiveTab(tab)}
-                    >
-                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                    </button>
-                ))}
-            </div>
-
-            {/* Bookings List */}
-            <div className="bookings-list">
-                <AnimatePresence mode="wait">
-                    {filteredBookings.length > 0 ? (
-                        filteredBookings.map((booking) => (
-                            <motion.div
-                                key={booking.id}
-                                className="booking-card"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                layout
-                            >
-                                <div className="booking-image">
-                                    <img src={booking.image} alt={booking.carName} />
-                                    <span className={`booking-status-badge ${getStatusColor(booking.status)}`}>
-                                        {getStatusIcon(booking.status)}
-                                        {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
-                                    </span>
-                                </div>
-                                <div className="booking-details">
-                                    <div className="booking-info-header">
-                                        <h3>{booking.carName}</h3>
-                                        <span className="booking-id">ID: {booking.id}</span>
-                                    </div>
-
-                                    <div className="booking-meta-grid">
-                                        <div className="meta-item">
-                                            <Calendar size={16} />
-                                            <div>
-                                                <span className="label">Pickup</span>
-                                                <span className="value">{booking.startDate}, {booking.startTime}</span>
-                                            </div>
-                                        </div>
-                                        <div className="meta-item">
-                                            <Calendar size={16} />
-                                            <div>
-                                                <span className="label">Return</span>
-                                                <span className="value">{booking.endDate}, {booking.endTime}</span>
-                                            </div>
-                                        </div>
-                                        <div className="meta-item full-width">
-                                            <MapPin size={16} />
-                                            <div>
-                                                <span className="label">Location</span>
-                                                <span className="value">{booking.location}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="booking-footer">
-                                        <div className="total-price">
-                                            <span className="label">Total Amount</span>
-                                            <span className="value">₹{booking.totalPrice.toLocaleString()}</span>
-                                        </div>
-                                        {booking.status === 'upcoming' && (
-                                            <div className="booking-actions">
-                                                <button className="action-btn secondary">Modify</button>
-                                                <button className="action-btn danger">Cancel</button>
-                                            </div>
-                                        )}
-                                        {booking.status === 'completed' && (
-                                            <div className="booking-actions">
-                                                <button className="action-btn primary">Book Again</button>
-                                                <button className="action-btn secondary">Invoice</button>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))
-                    ) : (
-                        <motion.div
-                            className="no-bookings"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
+                {/* Tabs */}
+                <div className="bookings-tabs">
+                    {['upcoming', 'completed', 'cancelled'].map((tab) => (
+                        <button
+                            key={tab}
+                            className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
+                            onClick={() => setActiveTab(tab)}
                         >
-                            <Car size={48} />
-                            <h3>No {activeTab} bookings found</h3>
-                            <p>Looks like you haven't booked any cars yet.</p>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Bookings List */}
+                <div className="bookings-list">
+                    <AnimatePresence mode="wait">
+                        {filteredBookings.length > 0 ? (
+                            filteredBookings.map((booking) => (
+                                <motion.div
+                                    key={booking.id}
+                                    className="booking-card"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    layout
+                                >
+                                    <div className="booking-image">
+                                        <img src={booking.image} alt={booking.carName} />
+                                        <span className={`booking-status-badge ${getStatusColor(booking.status)}`}>
+                                            {getStatusIcon(booking.status)}
+                                            {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                                        </span>
+                                    </div>
+                                    <div className="booking-details">
+                                        <div className="booking-info-header">
+                                            <h3>{booking.carName}</h3>
+                                            <span className="booking-id">ID: {booking.id}</span>
+                                        </div>
+
+                                        <div className="booking-meta-grid">
+                                            <div className="meta-item">
+                                                <Calendar size={16} />
+                                                <div>
+                                                    <span className="label">Pickup</span>
+                                                    <span className="value">{booking.startDate}, {booking.startTime}</span>
+                                                </div>
+                                            </div>
+                                            <div className="meta-item">
+                                                <Calendar size={16} />
+                                                <div>
+                                                    <span className="label">Return</span>
+                                                    <span className="value">{booking.endDate}, {booking.endTime}</span>
+                                                </div>
+                                            </div>
+                                            <div className="meta-item full-width">
+                                                <MapPin size={16} />
+                                                <div>
+                                                    <span className="label">Location</span>
+                                                    <span className="value">{booking.location}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="booking-footer">
+                                            <div className="total-price">
+                                                <span className="label">Total Amount</span>
+                                                <span className="value">₹{booking.totalPrice.toLocaleString()}</span>
+                                            </div>
+                                            {booking.status === 'upcoming' && (
+                                                <div className="booking-actions">
+                                                    <button className="action-btn secondary">Modify</button>
+                                                    <button className="action-btn danger">Cancel</button>
+                                                </div>
+                                            )}
+                                            {booking.status === 'completed' && (
+                                                <div className="booking-actions">
+                                                    <button className="action-btn primary">Book Again</button>
+                                                    <button className="action-btn secondary">Invoice</button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))
+                        ) : (
+                            <motion.div
+                                className="no-bookings"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                            >
+                                <Car size={48} />
+                                <h3>No {activeTab} bookings found</h3>
+                                <p>Looks like you haven't booked any cars yet.</p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
             </div>
         </div>
     );

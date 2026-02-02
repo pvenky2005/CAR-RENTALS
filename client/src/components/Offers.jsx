@@ -52,50 +52,52 @@ const Offers = () => {
     };
 
     return (
-        <div className="offers-container">
-            <motion.div
-                className="offers-header"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                <h1>Exclusive Offers</h1>
-                <p>Trending deals curated just for you. Grab them before they expire!</p>
-            </motion.div>
+        <div className="offers-page-wrapper">
+            <div className="offers-container">
+                <motion.div
+                    className="offers-header"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <h1>Exclusive Offers</h1>
+                    <p>Trending deals curated just for you. Grab them before they expire!</p>
+                </motion.div>
 
-            <div className="offers-grid">
-                {offers.map((offer, index) => (
-                    <motion.div
-                        key={offer.id}
-                        className="offer-card"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ y: -5 }}
-                    >
-                        <div className="offer-icon-wrapper" style={{ background: offer.color }}>
-                            {offer.icon}
-                        </div>
-                        <div className="offer-content">
-                            <span className="offer-expiry">{offer.expiry}</span>
-                            <h3>{offer.title}</h3>
-                            <p>{offer.description}</p>
+                <div className="offers-grid">
+                    {offers.map((offer, index) => (
+                        <motion.div
+                            key={offer.id}
+                            className="offer-card"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            whileHover={{ y: -5 }}
+                        >
+                            <div className="offer-icon-wrapper" style={{ background: offer.color }}>
+                                {offer.icon}
+                            </div>
+                            <div className="offer-content">
+                                <span className="offer-expiry">{offer.expiry}</span>
+                                <h3>{offer.title}</h3>
+                                <p>{offer.description}</p>
 
-                            <div className="coupon-section">
-                                <div className="coupon-code">
-                                    {offer.code}
+                                <div className="coupon-section">
+                                    <div className="coupon-code">
+                                        {offer.code}
+                                    </div>
+                                    <button className="copy-btn" onClick={() => copyCode(offer.code)} title="Copy Code">
+                                        <Copy size={18} />
+                                    </button>
                                 </div>
-                                <button className="copy-btn" onClick={() => copyCode(offer.code)} title="Copy Code">
-                                    <Copy size={18} />
+
+                                <button className="apply-btn" onClick={() => navigate('/home')}>
+                                    Book Now
                                 </button>
                             </div>
-
-                            <button className="apply-btn" onClick={() => navigate('/home')}>
-                                Book Now
-                            </button>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </div>
     );

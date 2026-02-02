@@ -1,8 +1,14 @@
+.cars-list-page-wrapper {
+    min-height: 100vh;
+    background: var(--bg-primary);
+    position: relative;
+    z-index: 1;
+}
+
 .cars-list-container {
     padding-top: 100px;
     padding-bottom: 5rem;
     min-height: 100vh;
-    background: var(--bg-primary);
     color: var(--text-primary);
     transition: all 0.5s ease;
 }

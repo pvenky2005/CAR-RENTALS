@@ -1,7 +1,13 @@
 /* Car Details Page Styles */
-.car-details-container {
+.car-details-page-wrapper {
     min-height: 100vh;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.car-details-container {
+    min-height: 100vh;
     padding-top: 80px;
 }
 
